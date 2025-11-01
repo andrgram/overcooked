@@ -1,0 +1,13 @@
+file_format: "1"
+id: overcooked
+name: Overcooked
+type: shield
+url: https://github.com/andrgram/overcooked/
+requires: [seeeduino_xiao_ble]
+# exposes: [i2c_oled]
+features:
+  - keys
+#   - display
+siblings:
+  - overcooked_left
+  - overcooked_right

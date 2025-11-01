@@ -17,4 +17,9 @@
 #     cmake-args: -DCONFIG_ZMK_STUDIO=y
 #     artifact-name: corne_left_with_studio
 #
----
+
+include:
+  - board: seeeduino_xiao_ble
+    shield: overcooked_left
+  - board: seeeduino_xiao_ble
+    shield: overcooked_right
