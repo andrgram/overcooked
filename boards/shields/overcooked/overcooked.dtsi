@@ -27,7 +27,7 @@
 //                          | SW17  | SW18  | SW19  |  | SW19  | SW18  | SW17  | 
 
 
-    kscan0:kscan= {
+    kscan0: kscan0 {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
         wakeup-source;
