@@ -86,6 +86,7 @@
         };
 
         NAV {
+            display-name = "NAV";
             bindings = <
                 &kp PG_UP           &kp HOME       &kp UP          &kp END          &none  &none      &kp HOME       &kp UP    &kp END    &kp PG_UP
                 &mt LEFT_GUI PG_DN  &mt LALT LEFT  &mt LCTRL DOWN  &mt LSHFT RIGHT  &none  &none      &kp LEFT       &kp DOWN  &kp RIGHT  &kp PG_DN
@@ -95,6 +96,7 @@
         };
 
         SYM {
+            display-name = "SYM";
             bindings = <
                 &trans  &trans  &trans    &kp RA(N7)    &kp RA(N0)  &kp RA(N7)  &kp RA(N0)          &trans  &trans  &trans
                 &trans  &trans  &trans    &kp LS(N8)    &kp LS(N9)  &kp LS(N8)  &mt (RSHFT) LS(N9)  &trans  &trans  &trans
@@ -104,6 +106,7 @@
         };
 
         FUN {
+            display-name = "FUN";
             bindings = <
                 &kp F12  &kp F7  &kp F8              &kp F9     &kp PRINTSCREEN  &none  &kp F7        &kp F8        &kp F9       &kp F12
                 &kp F11  &kp F4  &kp F5              &kp F6     &kp CAPSLOCK     &none  &mt RSHFT F4  &mt RCTRL F5  &mt RALT F6  &mt RGUI F11
@@ -113,6 +116,7 @@
         };
 
         MSE {
+            display-name = "MSE";
             bindings = <
                 &none     &none     &none      &none      &none   &none      &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &msc SCRL_UP
                 &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none   &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_LEFT
