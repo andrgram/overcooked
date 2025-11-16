@@ -13,6 +13,10 @@
 #define FUN 4
 #define MSE 5
 
+#define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24
+#define KEYS_R 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29
+#define THUMBS 30 31 32 33 34 35
+
 &caps_word { continue-list = <BACKSPACE DELETE QUESTION>; };
 
 
@@ -57,6 +61,33 @@
         };
     };
 
+
+    behaviors {
+        hml: home_row_mod_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_R THUMBS>; // List of keys on the right side of the keyboard
+            hold-trigger-on-release;
+        };
+        hmr: home_row_mod_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>; // List of keys on the left side of the keyboard
+            hold-trigger-on-release;
+        };
+    };
+
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -68,10 +99,10 @@
             // |   Z  |  X  |  C  |  D  |  V  |   |  K  |  H  |  ,  |  .  |  /  |
             //              | ESC | SPC | TAB |   | ENT | BSP | DEL |
             bindings = <
-                &kp Q       &kp W       &kp F        &kp P        &kp B      &kp J        &kp L            &kp U        &kp Y            &kp SQT
-                &mt LGUI A  &mt LALT R  &mt LCTRL S  &mt LSHFT T  &kp G      &kp M        &mt RSHFT N      &mt RCTRL E  &mt RIGHT_ALT I  &mt RGUI O
-                &kp Z       &kp X       &kp C        &kp D        &kp V      &kp K        &kp H            &kp COMMA    &kp DOT          &kp SLASH
-                                        &kp ESC      &lt 2 SPACE  &lt 5 TAB  &lt 3 ENTER  &lt 1 BACKSPACE  &lt 4 DEL
+                &kp Q           &kp W           &kp F           &kp P           &kp B      &kp J        &kp L               &kp U           &kp Y               &kp NUHS
+                &hml LGUI A     &hml LALT R     &hml LCTRL S    &hml LSHFT T    &kp G      &kp M        &hmr RSHFT N        &hmr RCTRL E    &hmr RIGHT_ALT I    &hmr RGUI O
+                &kp Z           &kp X           &kp C           &kp D           &kp V      &kp K        &kp H               &kp COMMA       &kp DOT             &kp SLASH
+                                                &kp ESC         &lt 2 SPACE     &lt 5 TAB  &lt 3 ENTER  &lt 1 BACKSPACE     &lt 4 DEL
             >;
         };
 
@@ -83,40 +114,40 @@
             // |   Z  |  X  |  C  |  D  |  V  |   |  K  |  H  |  ,  |  .  |  /  |
             //              | ESC | SPC | TAB |   | ENT | BSP | DEL |
             bindings = <
-                &kp RA(N7)  &kp N7  &kp N8   &kp N9  &kp RA(N0)  &none  &kp N7        &kp N8        &kp N9            &none
-                &kp LS(N8)  &kp N4  &kp N5   &kp N6  &kp LS(N9)  &none  &mt RSHFT N4  &mt RCTRL N5  &mt RIGHT_ALT N6  &kp RGUI
-                &kp RA(N8)  &kp N1  &kp N2   &kp N3  &kp RA(N9)  &none  &kp N1        &kp N2        &kp N3            &trans
-                                    &kp DOT  &kp N0  &kp COMMA   &none  &trans        &none
+                &kp RA(N7)  &kp N7  &kp N8   &kp N9  &kp RA(N0)  &none  &kp N7          &kp N8          &kp N9              &none
+                &kp LS(N8)  &kp N4  &kp N5   &kp N6  &kp LS(N9)  &none  &hmr RSHFT N4   &hmr RCTRL N5   &hmr RIGHT_ALT N6   &kp RGUI
+                &kp RA(N8)  &kp N1  &kp N2   &kp N3  &kp RA(N9)  &none  &kp N1          &kp N2          &kp N3              &trans
+                                    &kp DOT  &kp N0  &kp COMMA   &none  &trans          &none
             >;
         };
 
         NAV {
             display-name = "NAV";
             bindings = <
-                &kp PG_UP           &kp HOME       &kp UP          &kp END          &none  &none      &kp HOME       &kp UP    &kp END    &kp PG_UP
-                &mt LEFT_GUI PG_DN  &mt LALT LEFT  &mt LCTRL DOWN  &mt LSHFT RIGHT  &none  &none      &kp LEFT       &kp DOWN  &kp RIGHT  &kp PG_DN
-                &none               &none          &none           &none            &none  &none      &none          &none     &none      &none
-                                                &none           &trans           &none  &kp ENTER  &kp BACKSPACE  &kp DEL
+                &kp PG_UP               &kp HOME            &kp UP              &kp END             &none  &none      &kp HOME       &kp UP    &kp END    &kp PG_UP
+                &hml LEFT_GUI PG_DN     &hml LALT LEFT      &hml LCTRL DOWN     &hml LSHFT RIGHT    &none  &none      &kp LEFT       &kp DOWN  &kp RIGHT  &kp PG_DN
+                &none                   &none               &none               &none               &none  &none      &none          &none     &none      &none
+                                                            &none               &trans              &none  &kp ENTER  &kp BACKSPACE  &kp DEL
             >;
         };
 
         SYM {
             display-name = "SYM";
             bindings = <
-                &trans  &trans  &trans    &kp RA(N7)    &kp RA(N0)  &kp RA(N7)  &kp RA(N0)          &trans  &trans  &trans
-                &trans  &trans  &trans    &kp LS(N8)    &kp LS(N9)  &kp LS(N8)  &mt (RSHFT) LS(N9)  &trans  &trans  &trans
-                &trans  &trans  &trans    &kp RA(N8)    &kp RA(N9)  &kp RA(N8)  &kp RA(N9)          &trans  &trans  &trans
-                                &kp NUBS  &kp LS(NUBS)  &kp TAB     &trans      &trans              &trans
+                &trans  &trans  &trans    &kp RA(N7)    &kp RA(N0)  &kp RA(N7)  &kp RA(N0)              &trans  &trans  &trans
+                &trans  &trans  &trans    &kp LS(N8)    &kp LS(N9)  &kp LS(N8)  &hmr (RSHFT) LS(N9)     &trans  &trans  &trans
+                &trans  &trans  &trans    &kp RA(N8)    &kp RA(N9)  &kp RA(N8)  &kp RA(N9)              &trans  &trans  &trans
+                                &kp NUBS  &kp LS(NUBS)  &kp TAB     &trans      &trans                  &trans
             >;
         };
 
         FUN {
             display-name = "FUN";
             bindings = <
-                &kp F12  &kp F7  &kp F8              &kp F9     &kp PRINTSCREEN  &none  &kp F7        &kp F8        &kp F9       &kp F12
-                &kp F11  &kp F4  &kp F5              &kp F6     &kp CAPSLOCK     &none  &mt RSHFT F4  &mt RCTRL F5  &mt RALT F6  &mt RGUI F11
-                &kp F10  &kp F1  &kp F2              &kp F3     &none            &none  &kp F1        &kp F2        &kp F3       &kp F10
-                                 &kp K_CONTEXT_MENU  &kp SPACE  &kp TAB          &none  &trans        &none
+                &kp F12  &kp F7  &kp F8              &kp F9     &kp PRINTSCREEN  &none  &kp F7          &kp F8          &kp F9          &kp F12
+                &kp F11  &kp F4  &kp F5              &kp F6     &kp CAPSLOCK     &none  &hmr RSHFT F4   &hmr RCTRL F5   &hmr RALT F6    &hmr RGUI F11
+                &kp F10  &kp F1  &kp F2              &kp F3     &none            &none  &kp F1          &kp F2          &kp F3          &kp F10
+                                 &kp K_CONTEXT_MENU  &kp SPACE  &kp TAB          &none  &trans          &none
             >;
         };
 
@@ -128,6 +159,18 @@
                 &none     &none     &none      &none      &none   &none      &none           &none           &none            &none
                                     &none      &none      &trans  &mkp RCLK  &mkp LCLK       &mkp MCLK
             >;
+        };
+
+        extra0 {
+            status = "reserved";
+        };
+
+        extra1 {
+            status = "reserved";
+        };
+
+        extra2 {
+            status = "reserved";
         };
     };
 };
