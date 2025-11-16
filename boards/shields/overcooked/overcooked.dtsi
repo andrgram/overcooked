@@ -1,7 +1,6 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <seeeduino_xiao_ble.dtsi>
-
+#include "overcooked-layout.dtsi"
 
 / {
     chosen {
@@ -44,5 +43,3 @@
 
 
 };
-
-#include "overcooked-layout.dtsi"
