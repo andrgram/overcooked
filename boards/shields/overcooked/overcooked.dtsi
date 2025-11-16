@@ -1,5 +1,5 @@
-
 #include <dt-bindings/zmk/matrix_transform.h>
+#include "overcooked-layout.dtsi"
 
 / {
     chosen {
@@ -42,5 +42,3 @@
 
 };
 
-
-#include "overcooked-layout.dtsi"
