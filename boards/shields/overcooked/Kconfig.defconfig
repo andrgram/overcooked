@@ -12,14 +12,9 @@ config ZMK_STUDIO
 config ZMK_MOUSE
     default y
 
-config USB
-    default y
 
 config ZMK_USB
     default y
-
-config USB_DEVICE_MANUFACTURER
-    default "aGram"
 
 config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
     default 2
