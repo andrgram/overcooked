@@ -3,8 +3,10 @@ id: overcooked
 name: Overcooked
 type: shield
 url: https://github.com/andrgram/overcooked/
-requires: [seeeduino_xiao_ble]
-# exposes: [i2c_oled]
+requires:
+ - seeeduino_xiao_ble
+ - nice_nano
+exposes: [i2c_oled]
 features:
   - keys
   - studio
@@ -12,3 +14,4 @@ features:
 siblings:
   - overcooked_left
   - overcooked_right
+  - overcooked_dongle
