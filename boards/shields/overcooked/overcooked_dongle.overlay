@@ -1,6 +1,9 @@
 // #include <dt-bindings/zmk/matrix_transform.h>
 #include "overcooked.dtsi"
 
+/delete-node/ &kscan0;
+
+
 / {
     chosen {
         zmk,kscan = &mock_kscan;
