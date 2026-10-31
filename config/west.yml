@@ -14,6 +14,6 @@ manifest:
       import: app/west.yml
     - name: zmk-dongle-display
       remote: englmaxi
-      revision: main
+      revision: v0.3  # main targets ZMK v0.4 / Zephyr 4.1 since 2025-12; keep in step with the zmk pin above
   self:
     path: config
