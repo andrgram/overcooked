@@ -9,7 +9,7 @@ config ZMK_SPLIT_ROLE_CENTRAL
 config ZMK_STUDIO
     default y
 
-config ZMK_MOUSE
+config ZMK_POINTING
     default y
 
 

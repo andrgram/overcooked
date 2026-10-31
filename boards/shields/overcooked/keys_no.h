@@ -57,6 +57,7 @@
 #define NO_AE   SQT  // Æ
 #define NO_SQT  NUHS // '
 // Row 4
+#define NO_MICRO RA(NO_M)     // µ
 #define NO_LT    NUBS  // <
 #define NO_Z     Z     // Z
 #define NO_X     X     // X
@@ -124,11 +125,11 @@
 #define NO_POUND RA(NO_N3) // £
 #define NO_DLLR  RA(NO_N4) // $
 #define NO_EURO  RA(NO_N5) // €
-#define NO_RBRC  RA(NO_N7) // {
+#define NO_LBRC  RA(NO_N7) // {
 #define NO_LBRKT RA(NO_N8) // [
 #define NO_RBRKT RA(NO_N9) // ]
-#define NO_LBRC  RA(NO_N0) // }
-#define NO_ACUTE RA(NO_GRAVE) // ´
+#define NO_RBRC  RA(NO_N0) // }
+#define NO_ACUTE RA(NO_BSLS)  // ´ (dead)
 // Row 2
 #define NO_TILDE RA(NO_UMLT) // ~
 // Row 4
